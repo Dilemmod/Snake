@@ -10,3 +10,9 @@ D:\Reprosit\Snake\obj\Debug\Snake.pdb
 D:\Reprosit\Snake\bin\Debug\Snake.exe.config
 D:\Reprosit\Snake\bin\Debug\Snake.exe
 D:\Reprosit\Snake\bin\Debug\Snake.pdb
+D:\GitHub\Snake\bin\Debug\Snake.exe.config
+D:\GitHub\Snake\bin\Debug\Snake.exe
+D:\GitHub\Snake\bin\Debug\Snake.pdb
+D:\GitHub\Snake\obj\Debug\Snake.csprojAssemblyReference.cache
+D:\GitHub\Snake\obj\Debug\Snake.exe
+D:\GitHub\Snake\obj\Debug\Snake.pdb

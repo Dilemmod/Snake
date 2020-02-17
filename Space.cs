@@ -8,21 +8,21 @@ namespace Snake
 {
     abstract class Space
     {
-        protected int x, y;
-       
-        protected char[,] space = new char[25, 50];
-        protected abstract void SpaceFilling();
-        protected abstract void Action();
-        public virtual void SpaceСreating()
+        static protected int x = 50, y = 25;
+        protected char[,] space = new char[y, x];
+        public virtual void SpaceOutput()
         {
-            for (int i = 0; i < 25; i++)
+            for (int i = 0; i < y; i++)
             {
-                for (int j = 0; j < 50; j++)
+                for (int j = 0; j < x; j++)
                 {
                     Console.Write(space[i,j] + " ");
                 }
                 Console.WriteLine();
             }
+            Console.Beep(100, 150);
+            Console.Beep(300, 200);
         }
+
     }
 }

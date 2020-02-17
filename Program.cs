@@ -10,11 +10,8 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("\u2554 \u2550 \u2557 ");
-            Console.WriteLine("\u2551   \u2551");
-            Console.WriteLine("\u255A \u2550 \u255D");
-            Space Snake = new Menu();
-            Snake.SpaceСreating();
+            
+            Snake snake = new Snake();
             Console.ReadKey();
         }
         /*
