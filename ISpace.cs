@@ -8,7 +8,7 @@ namespace Snake
 {
     interface ISpace
     {
-        void SpaceFilling();
+        void SpaceFilling(int choice, bool gameOrNo);
         void Action();
     }
 }

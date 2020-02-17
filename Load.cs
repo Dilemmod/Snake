@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
-    class Program
+    class Load
     {
-        static void Main(string[] args)
+        public Load()
         {
-            
-            Menu snake = new Menu(13, 10);
-            Console.ReadKey();
+            Console.WriteLine("LOAD");
         }
     }
 }
