@@ -45,14 +45,18 @@ namespace Snake
             {
                 for (int j = 0; j < x; j++)
                 {
+                    //Сlear array
                     space[i, j] = ' ';
+                    //Horizontal and vertical
                     space[1, j] = '\u2550';
                     space[y - 1, j] = '\u2550';
                     space[i, 1] = '\u2551';
                     space[i, x - 1] = '\u2551';
+                    //Defect
                     space[0, j] = ' ';
                     space[i, 0] = ' ';
                     space[1, 0] = ' ';
+                    //Angles
                     space[1, 1] = '\u2554';
                     space[1, x - 1] = '\u2557';
                     space[y - 1, x - 1] = '\u255D';
@@ -61,16 +65,35 @@ namespace Snake
             }
             Console.ForegroundColor = color;
         }
-        public virtual void SpaceOutput()
+        public void SpaceOutput(int score)
         {
             for (int i = 0; i < y; i++)
             {
                 for (int j = 0; j < x; j++)
                 {
-                    Console.Write(space[i,j] + " ");
+                    Console.Write(space[i,j]);
                 }
                 Console.WriteLine();
             }
+            Console.WriteLine("  SCORE: " + score);
+            Console.SetCursorPosition(0, 0);
+        }
+        //For beauty
+        public void SpaceOutput()
+        {
+            for (int i = 0; i < y; i++)
+            {
+                for (int j = 0; j < x; j++)
+                {
+                    Console.Write(space[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+            Console.SetCursorPosition(0, 0);
+        }
+        protected int PercentOfNum(int percent, int number)
+        {
+            return (number * percent) / 100;
         }
 
     }

@@ -11,57 +11,51 @@ namespace Snake
     {
         public Menu(byte x, byte y) : base(x, y)
         {
+            SpaceFilling(3, false);
             Action();
         }
-        public void SpaceFilling(int choice,bool gameON)
+        private void SpaceFilling(int choice,bool gameON)
         {
             //Сreating menu borders
             SpaceBorders(ConsoleColor.DarkYellow);
-            for (int i = 0; i < y; i++)
+            int s = 3;
+            space[s, 5] = 'P';
+            space[s, 6] = 'L';
+            space[s, 7] = 'A';
+            space[s, 8] = 'Y';
+
+            int l = 5;
+            if (gameON)
             {
-                for (int j = 0; j < x; j++)
-                {
-                    int s = 3;
-                    space[s, 5] = 'P';
-                    space[s, 6] = 'L';
-                    space[s, 7] = 'A';
-                    space[s, 8] = 'Y';
-
-                    int l = 5;
-                    if (gameON)
-                    {
-                        space[l, 5] = 'S';
-                        space[l, 6] = 'A';
-                        space[l, 7] = 'V';
-                        space[l, 8] = 'E';
-                    }
-                    else
-                    {
-                        space[l, 5] = 'L';
-                        space[l, 6] = 'O';
-                        space[l, 7] = 'A';
-                        space[l, 8] = 'D';
-                    }
-
-                    int e = 7;
-                    space[e, 5] = 'E'; 
-                    space[e, 6] = 'X';
-                    space[e, 7] = 'I';
-                    space[e, 8] = 'T';
-
-                    space[choice - 1, 5] = '_'; space[choice, 4] = '<';
-                    space[choice - 1, 6] = '_';
-                    space[choice - 1, 7] = '_';
-                    space[choice - 1, 8] = '_'; space[choice, 9] = '>';
-                }
+                space[l, 5] = 'S';
+                space[l, 6] = 'A';
+                space[l, 7] = 'V';
+                space[l, 8] = 'E';
             }
+            else
+            {
+                space[l, 5] = 'L';
+                space[l, 6] = 'O';
+                space[l, 7] = 'A';
+                space[l, 8] = 'D';
+            }
+
+            int e = 7;
+            space[e, 5] = 'E'; 
+            space[e, 6] = 'X';
+            space[e, 7] = 'I';
+            space[e, 8] = 'T';
+
+            space[choice - 1, 5] = '_'; space[choice, 4] = '<';
+            space[choice - 1, 6] = '_';
+            space[choice - 1, 7] = '_';
+            space[choice - 1, 8] = '_'; space[choice, 9] = '>';
             SpaceOutput();
         }
-        public void Action()
+        private void Action()
         {
             ConsoleKeyInfo navigation;
             int choice = 3;
-            SpaceFilling(choice,false);
             while (true)
             {
                 navigation = Console.ReadKey(true);
@@ -71,11 +65,15 @@ namespace Snake
                     case ConsoleKey.Enter:
                         if (choice == 3)
                         {
-                            GameSnake play = new GameSnake();
-                        }else if(choice == 5)
+                            GameSnake play = new GameSnake(50,25);
+                            goto End;
+                        }
+                        else if(choice == 5)
                         {
                             Load load = new Load();
-                        }else if(choice == 7)
+                            goto End;
+                        }
+                        else if(choice == 7)
                         {
                             Process.GetCurrentProcess().Kill();
                         }
@@ -94,14 +92,15 @@ namespace Snake
                         Process.GetCurrentProcess().Kill();
                         break;
                     case ConsoleKey.P:
-                        GameSnake play2 = new GameSnake();
-                        break;
+                        GameSnake play2 = new GameSnake(50, 25);
+                        goto End;
                     case ConsoleKey.L:
                         Load load2 = new Load();
                         break;
                 }
                 SpaceFilling(choice,false);
             }
+            End:;
         }
     }
 }

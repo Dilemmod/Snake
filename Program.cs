@@ -10,8 +10,8 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            
-            Menu snake = new Menu(13, 10);
+            GameSnake game = new GameSnake(50, 25);
+            //Menu snake = new Menu(13, 10);
             Console.ReadKey();
         }
     }
