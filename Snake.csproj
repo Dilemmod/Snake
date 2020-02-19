@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,6 +49,8 @@
     <Compile Include="ISpace.cs" />
     <Compile Include="Load.cs" />
     <Compile Include="Menu.cs" />
+    <Compile Include="Rectangle.cs" />
+    <Compile Include="Snake.cs" />
     <Compile Include="Space.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
