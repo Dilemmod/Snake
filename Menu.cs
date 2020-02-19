@@ -9,12 +9,14 @@ namespace Snake
 {
     class Menu: Space
     {
-        public Menu(byte x, byte y) : base(x, y)
+        bool gameON = false;
+        public Menu(byte x, byte y, bool gameON) : base(x, y)
         {
-            SpaceFilling(3, false);
+            this.gameON = gameON;
+            SpaceFilling(3);
             Action();
         }
-        public void SpaceFilling(int choice,bool gameON)
+        public void SpaceFilling(int choice)
         {
             //Сreating menu borders
             SpaceBorders(ConsoleColor.DarkYellow);
@@ -31,6 +33,7 @@ namespace Snake
                 space[l, 6] = 'A';
                 space[l, 7] = 'V';
                 space[l, 8] = 'E';
+                Load load1 = new Load(tempSpace);
             }
             else
             {
@@ -70,7 +73,7 @@ namespace Snake
                         }
                         else if(choice == 5)
                         {
-                            Load load = new Load();
+                            Load load1 = new Load(tempSpace);
                             goto End;
                         }
                         else if(choice == 7)
@@ -95,10 +98,10 @@ namespace Snake
                         GameSnake play2 = new GameSnake(50, 25);
                         goto End;
                     case ConsoleKey.L:
-                        Load load2 = new Load();
+                        Load load = new Load(tempSpace);
                         break;
                 }
-                SpaceFilling(choice,false);
+                SpaceFilling(choice);
             }
             End:;
         }

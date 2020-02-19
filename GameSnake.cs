@@ -76,7 +76,7 @@ class GameSnake:Space
                             n = Navigate.Right;
                             break;
                         case ConsoleKey.Escape:
-                            char[,] tempSpace = new char[y, x];
+                            tempSpace = new char[y, x];
                             for (int i = 0; i < y; i++)
                             {
                                 for (int j = 0; j < x; j++)
@@ -84,7 +84,7 @@ class GameSnake:Space
                                     tempSpace[i, j] = space[i, j];
                                 }
                             }
-                            
+                            Load load = new Load(tempSpace);
                             break;
                         default:
                             break;
@@ -145,7 +145,7 @@ class GameSnake:Space
                     GameSnake game = new GameSnake(50, 25);
                     break;
                 default:
-                    Menu snakee = new Menu(13, 10);
+                    Menu snakee = new Menu(13, 10,false);
                     break;
             }
             Console.ReadKey();

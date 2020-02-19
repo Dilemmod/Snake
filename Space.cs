@@ -33,11 +33,15 @@ namespace Snake
             }
         }
         protected char[,] space;
+        protected char[,] tempSpace;
+
         protected Space(byte x, byte y)
         {
             this.x = x;
             this.y = y;
             space = new char[y, x];
+            space = new char[y, x];
+
         }
         public virtual void SpaceBorders(ConsoleColor color)
         {
