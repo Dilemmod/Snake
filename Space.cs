@@ -14,10 +14,10 @@ namespace Snake
             get{ return X;}
             set
             {
-                if (value > 4 && value < 111)
+                if (value > 9 && value < 111)
                     X = value;
                 else
-                    Console.WriteLine("Fail: X must be between 5 and 110"); ;
+                    Console.WriteLine("Fail: X must be between 9 and 110"); ;
             }
         }
         byte Y;
@@ -26,20 +26,18 @@ namespace Snake
             get{return Y;}
             set
             {
-                if (value > 4 && value < 61)
+                if (value > 9 && value < 61)
                     Y = value;
                 else
-                    Console.WriteLine("Fail: Y must be between 5 and 60"); ;
+                    Console.WriteLine("Fail: Y must be between 9 and 60"); ;
             }
         }
         protected char[,] space;
-        protected char[,] tempSpace;
 
         protected Space(byte x, byte y)
         {
             this.x = x;
             this.y = y;
-            space = new char[y, x];
             space = new char[y, x];
 
         }
@@ -83,7 +81,7 @@ namespace Snake
             Console.SetCursorPosition(0, 0);
         }
         //For beauty
-        public void SpaceOutput()
+        public void SpaceOutput(string s)
         {
             for (int i = 0; i < y; i++)
             {
@@ -93,6 +91,7 @@ namespace Snake
                 }
                 Console.WriteLine();
             }
+            Console.WriteLine(s);
             Console.SetCursorPosition(0, 0);
         }
         protected int PercentOfNum(int percent, int number)

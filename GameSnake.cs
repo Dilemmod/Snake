@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Shapes;
 
 namespace Snake
 {
-    //if (Console.KeyAvailable == true)
-class GameSnake:Space
+    class Snake
+    {
+        public int x { get; set; }
+        public int y { get; set; }
+    }
+    class GameSnake:Space
     {
         bool foodExist = false;
         Random rand = new Random();
@@ -75,17 +76,6 @@ class GameSnake:Space
                         case ConsoleKey.D:
                             n = Navigate.Right;
                             break;
-                        case ConsoleKey.Escape:
-                            tempSpace = new char[y, x];
-                            for (int i = 0; i < y; i++)
-                            {
-                                for (int j = 0; j < x; j++)
-                                {
-                                    tempSpace[i, j] = space[i, j];
-                                }
-                            }
-                            Load load = new Load(tempSpace);
-                            break;
                         default:
                             break;
                     }
@@ -97,7 +87,7 @@ class GameSnake:Space
                 //Pressed Right or Left 
                 snake[0].x = (n == Navigate.Left ? --snake[0].x : (n == Navigate.Right ? ++snake[0].x : snake[0].x));
 
-                //Присваеваем значение остальным сегментам
+                //Assign value to other segments
                 for (int i = 1; i < snake.Count; i++)
                 {
                     secondSegmentX = snake[i].x; secondSegmentY = snake[i].y;
@@ -105,10 +95,10 @@ class GameSnake:Space
                     mainSegmentX = secondSegmentX; mainSegmentY= secondSegmentY;
                 }
 
-                //Сэла ли себя змея
+                //Did the snake eat self?
                 if (space[snake[0].y, snake[0].x] == '@')
                     break;
-                //Поглошение еды
+                //Food absorption
                 else if (space[snake[0].y, snake[0].x] == '#')
                 {
                     snake.Add(new Snake() { x = snake[snake.Count - 1].x, y = snake[snake.Count - 1].y });
@@ -116,7 +106,7 @@ class GameSnake:Space
                     score++;
                     delayTime -=(delayTime>20?20:0);
                 }
-                //Присвоить значение колекцыи Snake
+                //Assign Snake Collection Value
                 for (int i = 0; i < snake.Count; i++)
                     space[snake[i].y, snake[i].x] = (i == snake.Count - 1 ? ' ': '@');
                 if(foodExist == false)
@@ -142,15 +132,13 @@ class GameSnake:Space
             switch (userInput.Key)
             {
                 case ConsoleKey.Enter:
-                    GameSnake game = new GameSnake(50, 25);
+                    GameSnake game = new GameSnake(x, y);
                     break;
                 default:
-                    Menu snakee = new Menu(13, 10,false);
+                    Menu snakee = new Menu(13, 10);
                     break;
             }
             Console.ReadKey();
-            //GameSnake game = new GameSnake(50, 25);
-            //Console.Clear();
         }
     }
 }

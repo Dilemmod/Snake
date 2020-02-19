@@ -60,24 +60,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DB.cs" />
-    <Compile Include="Load.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Snake.cs" />
     <Compile Include="GameSnake.cs" />
     <Compile Include="Menu.cs" />
-    <Compile Include="SnakeDataSet.cs">
-      <DependentUpon>SnakeDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="SnakeDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SnakeDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Space.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,17 +76,6 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="SnakeDataSet.xsc">
-      <DependentUpon>SnakeDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="SnakeDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SnakeDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="SnakeDataSet.xss">
-      <DependentUpon>SnakeDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
