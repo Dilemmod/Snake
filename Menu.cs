@@ -14,7 +14,7 @@ namespace Snake
             SpaceFilling(3, false);
             Action();
         }
-        private void SpaceFilling(int choice,bool gameON)
+        public void SpaceFilling(int choice,bool gameON)
         {
             //Сreating menu borders
             SpaceBorders(ConsoleColor.DarkYellow);
@@ -52,7 +52,7 @@ namespace Snake
             space[choice - 1, 8] = '_'; space[choice, 9] = '>';
             SpaceOutput();
         }
-        private void Action()
+        public void Action()
         {
             ConsoleKeyInfo navigation;
             int choice = 3;

@@ -45,18 +45,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSetSnake.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetSnake.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Snake.cs" />
     <Compile Include="GameSnake.cs" />
     <Compile Include="ISpace.cs" />
     <Compile Include="Load.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Rectangle.cs" />
-    <Compile Include="Snake.cs" />
     <Compile Include="Space.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="DataSetSnake.xsc">
+      <DependentUpon>DataSetSnake.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetSnake.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetSnake.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetSnake.xss">
+      <DependentUpon>DataSetSnake.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
