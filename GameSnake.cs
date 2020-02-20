@@ -55,7 +55,7 @@ namespace Snake
                 new Snake(){x=(x / 2),y=(PercentOfNum(80, y))+2},
                 new Snake(){x=(x / 2),y=(PercentOfNum(80, y))+3}
             };
-            int delayTime = 200,tempI=0,score = 0,mainSegmentX, mainSegmentY, secondSegmentX, secondSegmentY;
+            int delayTime = 100,tempI=0,score = 0,mainSegmentX, mainSegmentY, secondSegmentX, secondSegmentY;
             while (snake[0].y > 1 && snake[0].y < y-1 && snake[0].x > 1 && snake[0].x < x-1)
             {
                 mainSegmentX = snake[0].x; 
@@ -133,7 +133,11 @@ namespace Snake
                     snake.Add(new Snake() { x = snake[snake.Count - 1].x, y = snake[snake.Count - 1].y });
                     foodExist = false;
                     score++;
-                    delayTime -=(delayTime>20?20:0);
+
+                    if (score % 3 == 0)
+                    {
+                        delayTime -= (score<=6?30:(score <= 9 ? 20: (score <= 12 ? 10: score <= 15 ? 9:0)));
+                    }
                 }
                 //Assign Snake Collection Value
                 for (int i = 0; i < snake.Count; i++)

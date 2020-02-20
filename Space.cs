@@ -77,7 +77,7 @@ namespace Snake
                 }
                 Console.WriteLine();
             }
-            Console.WriteLine("  SCORE: " + score);
+            Console.WriteLine("  SCORE: " + score + "\nFOR PAUSE PRESS ESCAPE OR P");
             Console.SetCursorPosition(0, 0);
         }
         //For beauty
