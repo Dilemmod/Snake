@@ -65,16 +65,16 @@ namespace Snake
                     switch (userInput.Key)
                     {
                         case ConsoleKey.W:
-                            n = Navigate.Up;
+                            n = (n == Navigate.Down ? Navigate.Down : Navigate.Up);
                             break;
                         case ConsoleKey.S:
-                            n = Navigate.Down;
+                            n = (n == Navigate.Up|| n == Navigate.Default ? Navigate.Up : Navigate.Down);
                             break;
                         case ConsoleKey.A:
-                            n = Navigate.Left;
+                            n = (n == Navigate.Right ? Navigate.Right : Navigate.Left);
                             break;
                         case ConsoleKey.D:
-                            n = Navigate.Right;
+                            n = (n == Navigate.Left ? Navigate.Left : Navigate.Right);
                             break;
                         default:
                             break;
