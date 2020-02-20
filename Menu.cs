@@ -31,20 +31,6 @@ namespace Snake
             space[ed, 6] = 'D';
             space[ed, 7] = 'I';
             space[ed, 8] = 'T';
-            //if (gameON)
-            //{
-            //    space[l, 5] = 'S';
-            //    space[l, 6] = 'A';
-            //    space[l, 7] = 'V';
-            //    space[l, 8] = 'E';
-            //}
-            //else
-            //{
-            //    space[l, 5] = 'L';
-            //    space[l, 6] = 'O';
-            //    space[l, 7] = 'A';
-            //    space[l, 8] = 'D';
-            //}
 
             int e = 7;
             space[e, 5] = 'E'; 

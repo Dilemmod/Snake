@@ -65,19 +65,30 @@ namespace Snake
                     userInput = Console.ReadKey(true);
                     switch (userInput.Key)
                     {
+                        case ConsoleKey.NumPad8:
+                        case ConsoleKey.UpArrow:
                         case ConsoleKey.W:
                             n = (n == Navigate.Down ? Navigate.Down : Navigate.Up);
                             break;
+                        case ConsoleKey.NumPad2:
+                        case ConsoleKey.NumPad5:
+                        case ConsoleKey.DownArrow:
                         case ConsoleKey.S:
                             n = (n == Navigate.Up|| n == Navigate.Default ? Navigate.Up : Navigate.Down);
                             break;
+                        case ConsoleKey.NumPad6:
+                        case ConsoleKey.LeftArrow:
                         case ConsoleKey.A:
                             n = (n == Navigate.Right ? Navigate.Right : Navigate.Left);
                             break;
+                        case ConsoleKey.NumPad4:
+                        case ConsoleKey.RightArrow:
                         case ConsoleKey.D:
                             n = (n == Navigate.Left ? Navigate.Left : Navigate.Right);
                             break;
                         case ConsoleKey.Escape:
+                        case ConsoleKey.P:
+                        case ConsoleKey.Enter:
                             if (n != Navigate.Escape)
                             {
                                 temp = n;
