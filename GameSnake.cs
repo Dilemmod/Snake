@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace Snake
 {
@@ -25,6 +24,7 @@ namespace Snake
         }
         enum Navigate
         {
+            Escape,
             Default,
             Up,
             Down,
@@ -46,6 +46,7 @@ namespace Snake
         private void Action()
         {
             Navigate n = Navigate.Default;
+            Navigate temp = Navigate.Escape;
             ConsoleKeyInfo userInput;
             List<Snake> snake = new List<Snake>
             {
@@ -54,7 +55,7 @@ namespace Snake
                 new Snake(){x=(x / 2),y=(PercentOfNum(80, y))+2},
                 new Snake(){x=(x / 2),y=(PercentOfNum(80, y))+3}
             };
-            int delayTime = 200,score = 0,mainSegmentX, mainSegmentY, secondSegmentX, secondSegmentY;
+            int delayTime = 200,tempI=0,score = 0,mainSegmentX, mainSegmentY, secondSegmentX, secondSegmentY;
             while (snake[0].y > 1 && snake[0].y < y-1 && snake[0].x > 1 && snake[0].x < x-1)
             {
                 mainSegmentX = snake[0].x; 
@@ -76,10 +77,25 @@ namespace Snake
                         case ConsoleKey.D:
                             n = (n == Navigate.Left ? Navigate.Left : Navigate.Right);
                             break;
+                        case ConsoleKey.Escape:
+                            if (n != Navigate.Escape)
+                            {
+                                temp = n;
+                                n = Navigate.Escape;
+                                tempI = delayTime;
+                                delayTime = 1000;
+                            }
+                            else
+                            {
+                                delayTime = tempI;
+                                n = temp;
+                            }
+                            break;
                         default:
                             break;
                     }
                 }
+                snake[0].y = (n == Navigate.Escape ? snake[0].y : snake[0].y);
                 //No keys pressed yet
                 snake[0].y = (n == Navigate.Default ? --snake[0].y : snake[0].y);
                 //Pressed Up or Down 
@@ -88,15 +104,17 @@ namespace Snake
                 snake[0].x = (n == Navigate.Left ? --snake[0].x : (n == Navigate.Right ? ++snake[0].x : snake[0].x));
 
                 //Assign value to other segments
-                for (int i = 1; i < snake.Count; i++)
+                if(n != Navigate.Escape)
                 {
-                    secondSegmentX = snake[i].x; secondSegmentY = snake[i].y;
-                    snake[i].x = mainSegmentX; snake[i].y = mainSegmentY;
-                    mainSegmentX = secondSegmentX; mainSegmentY= secondSegmentY;
+                    for (int i = 1; i < snake.Count; i++)
+                    {
+                        secondSegmentX = snake[i].x; secondSegmentY = snake[i].y;
+                        snake[i].x = mainSegmentX; snake[i].y = mainSegmentY;
+                        mainSegmentX = secondSegmentX; mainSegmentY = secondSegmentY;
+                    }
                 }
-
                 //Did the snake eat self?
-                if (space[snake[0].y, snake[0].x] == '@')
+                if (space[snake[0].y, snake[0].x] == '@'&& n != Navigate.Escape)
                     break;
                 //Food absorption
                 else if (space[snake[0].y, snake[0].x] == '#')

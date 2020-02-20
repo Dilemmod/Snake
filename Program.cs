@@ -10,6 +10,7 @@ namespace Snake
     {
         static void Main(string[] args)
         {
+            Console.CursorVisible = false;
             Menu snake = new Menu(13, 10);
             Console.ReadKey();
         }
